@@ -1,0 +1,9 @@
+*.log
+*.temp
+
+.idea/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+#db.sqlite3
