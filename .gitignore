@@ -5,5 +5,10 @@
 *.py[cod]
 *$py.class
 
+report
+build
+dist
+pyse.egg-info
+
 # Django stuff:
 #db.sqlite3
