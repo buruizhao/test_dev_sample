@@ -11,10 +11,10 @@
     <title>test_platform</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="https://v3.bootcss.com/examples/signin/signin.css" rel="stylesheet">
+    <link href="https://v3.bootcss.com/examples/signin/signin.css" rel="stylesheet" type="text/css">
 
   </head>
   <body>
@@ -27,9 +27,9 @@
         <input type="text" name="username" class="form-control" placeholder="用户名" required autofocus>
         <label for="inputPassword" class="sr-only">登陆密码：</label>
         <input type="password" name="password" class="form-control" placeholder="密码" required>
-          <h4><span class="label label-danger">{{ error }}</span></h4>
 
-        {% csrf_token %}
+          <h4><span class="label label-danger">{{ error }}</span></h4>
+          {% csrf_token %}
         <button class="btn btn-lg btn-primary btn-block" name="btn" type="submit">登陆</button>
       </form>
 
