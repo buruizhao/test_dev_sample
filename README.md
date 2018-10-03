@@ -24,18 +24,20 @@
 
 - 页面的bootstrap样式引用修改为本地静态样式
 	
-	1. 根目录创建static文件夹
-	2. setting.py文件，增加配置
+	1. 	根目录创建static文件夹
+	2. 	setting.py文件，增加配置
 
-		`STATICFILES_DIRS = [
-	    os.path.join(BASE_DIR, 'static'),
-		]`
+			STATICFILES_DIRS = [
+				os.path.join(BASE_DIR, 'static'),
+			]
 
-	3.页面引用修改
+- 页面引用格式
 
 		{% load static %}
 		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
 		<link href="{%static 'css/signin.css'%}" rel="stylesheet" type="text/css">
 
-- 调用页面cookie
-- 调用页面session
+- 登陆页面调用cookie
+- 登陆页面调用session
+- 增加测试平台页面
+- 增加退出登录
