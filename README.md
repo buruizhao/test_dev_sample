@@ -15,6 +15,7 @@
 *2018-10-03*
 
 	*	迁移templates模板文件至项目根目录
+	
 	"""
 	修改配置setting.py文件
 
@@ -26,14 +27,18 @@
 	"""
 
 	*	页面的bootstrap样式引用修改为本地静态样式
+	
 	1.	根目录创建static文件夹
 	2.	setting.py文件，增加配置
+
 	"""
 	STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 	]
 	"""
+
 	3.页面引用修改
+	
 	"""
 	{% load static %}
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
