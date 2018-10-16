@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block head %}
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="/project/project_manage/">项目管理<span class="sr-only">(current)</span></a></li>
+            <li><a href="/project/project_module/">模块管理</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">接口管理</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">用例管理</a></li>
+            <li><a href="">任务管理</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">测试工具</a></li>
+            <li><a href="">mockserver</a></li>
+          </ul>
+        </div>
+
+      <!-- 显示项目列表 -->
+      {% if type == 'list' %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h2 class="sub-header">项目列表
+            <button type="button" onclick="window.location.href='/project/project_manage_create/'" class="btn btn-sm btn-success" style="float:right">创建</button>
+{#            <button type="button" onclick="window.open('/project/project_manage_create/')" class="btn btn-sm btn-success" style="float:right">创建</button>#}
+          </h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>项目名称</th>
+                  <th>项目备注</th>
+                  <th>项目状态</th>
+                  <th>创建时间</th>
+                  <th>更新时间</th>
+                  <th>修改</th>
+                  <th>删除</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for project in projects %}
+                <tr>
+                  <td>{{ project.id }}</td>
+                  <td>{{ project.name }}</td>
+                  <td>{{ project.describe }}</td>
+                  <td>{{ project.status }}</td>
+                  <td>{{ project.create_time|date:"Y-m-d H:i:s" }}</td>
+                  <td>{{ project.update_time|date:"Y-m-d H:i:s" }}</td>
+                  <td><a href="/project/project_manage_update/">修改</a></td>
+                  <td><a href="/project/project_manage_delete/">删除</a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      {% endif %}
+
+      <!-- 项目创建 -->
+      {% if type == 'create' %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h2 class="sub-header">创建项目
+              {# onclick="window.location.href='/project/project_manage_create/'" #}
+            <button type="button" onclick="window.location.href='/project/project_manage/'" class="btn btn-sm btn-danger" style="float:right">取消</button>
+            <button type="button" class="btn btn-sm btn-success" style="float:right">保存</button>
+          </h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              这是创建项目的表单，网页建设中
+          </div>
+        </div>
+
+      {% endif %}
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+{% endblock %}
