@@ -39,8 +39,7 @@
                   <th>项目状态</th>
                   <th>创建时间</th>
                   <th>更新时间</th>
-                  <th>修改</th>
-                  <th>删除</th>
+                  <th>操作</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,8 +51,10 @@
                   <td>{{ project.status }}</td>
                   <td>{{ project.create_time|date:"Y-m-d H:i:s" }}</td>
                   <td>{{ project.update_time|date:"Y-m-d H:i:s" }}</td>
-                  <td><a href="/project/project_manage_update/">修改</a></td>
-                  <td><a href="/project/project_manage_delete/">删除</a></td>
+                  <td>
+                      <a href="/project/project_manage_update/">修改</a>
+                      <a href="/project/project_manage_delete/">删除</a>
+                  </td>
                 </tr>
                 {% endfor %}
               </tbody>
@@ -74,7 +75,14 @@
           </h2>
           <div class="table-responsive">
             <table class="table table-striped">
-              这是创建项目的表单，网页建设中
+
+                <form action="/your-name/" method="post">
+                  {% csrf_token %}
+                  {{ form }}
+                  <button type="button" onclick="window.location.href='/project/project_manage/'" class="btn btn-sm btn-danger">取消</button>
+                  <button type="submit" class="btn btn-sm btn-success">保存</button>
+              </form>
+
           </div>
         </div>
 
