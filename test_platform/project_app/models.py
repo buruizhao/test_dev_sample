@@ -14,6 +14,7 @@ class Project(models.Model):
 	def __str__(self):
 		return self.name
 
+
 #创建模块表
 class Module(models.Model):
 	project = models.ForeignKey(Project, on_delete=models.CASCADE)

@@ -52,8 +52,8 @@
                   <td>{{ project.create_time|date:"Y-m-d H:i:s" }}</td>
                   <td>{{ project.update_time|date:"Y-m-d H:i:s" }}</td>
                   <td>
-                      <a href="/project/project_manage_update/">修改</a>
-                      <a href="/project/project_manage_delete/">删除</a>
+                      <a href="/project/project_manage_update/{{ project.id }}/">修改</a>
+                      <a href="/project/project_manage_delete/{{ project.id }}/">删除</a>
                   </td>
                 </tr>
                 {% endfor %}
@@ -66,33 +66,37 @@
 
       <!-- 项目创建 -->
       {% if type == 'create' %}
-
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h2 class="sub-header">创建项目
-              {# onclick="window.location.href='/project/project_manage_create/'" #}
-            <button type="button" onclick="window.location.href='/project/project_manage/'" class="btn btn-sm btn-danger" style="float:right">取消</button>
-            <button type="button" class="btn btn-sm btn-success" style="float:right">保存</button>
-          </h2>
+          <h2 class="sub-header">创建项目</h2>
           <div class="table-responsive">
-            <table class="table table-striped">
-
-                <form action="/your-name/" method="post">
-                  {% csrf_token %}
-                  {{ form }}
-                  <button type="button" onclick="window.location.href='/project/project_manage/'" class="btn btn-sm btn-danger">取消</button>
-                  <button type="submit" class="btn btn-sm btn-success">保存</button>
-              </form>
-
+                <form action="/project/project_manage_create/" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-sm btn-success">保存</button>
+                        <button type="button" onclick="window.location.href='/project/project_manage/'" class="btn btn-sm btn-danger">取消</button>
+                    </div>
+                </form>
           </div>
         </div>
-
       {% endif %}
 
-
-
-
-
-
+      <!-- 项目修改 -->
+      {% if type == 'update' %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h2 class="sub-header">修改项目</h2>
+          <div class="table-responsive">
+                <form action="/project/project_manage_update/{{ project_id }}/" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-sm btn-success">保存</button>
+                        <button type="button" onclick="window.location.href='/project/project_manage/'" class="btn btn-sm btn-danger">取消</button>
+                    </div>
+                </form>
+          </div>
+        </div>
+      {% endif %}
 
       </div>
     </div>
