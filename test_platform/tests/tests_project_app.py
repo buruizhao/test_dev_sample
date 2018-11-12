@@ -1,4 +1,4 @@
-from django.test import TestCase,Client
+from django.test import TestCase
 from project_app.models import Project,Module
 
 # Create your tests here.
@@ -45,7 +45,7 @@ class ModuleTestCase(TestCase):
     #模块单元测试
     def setUp(self):
         Project.objects.create(name='测试项目', describe='备注测试')
-        Module.objects.create(project=1,name='测试模块',describe='备注测试')
+        Module.objects.create(project_id=1,name='测试模块',describe='备注测试')
 
 
     def test_module_select(self):
@@ -55,7 +55,7 @@ class ModuleTestCase(TestCase):
 
     def test_module_create(self):
         #模块创建测试
-        Module.objects.create(name='测试模块02', describe='备注测试02')
+        Module.objects.create(project_id=1, name='测试模块02', describe='备注测试02')
         module_create = Module.objects.get(name='测试模块02')
         self.assertEqual(module_create.describe, '备注测试02')
 

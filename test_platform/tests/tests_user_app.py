@@ -103,6 +103,10 @@ class LoginActionTest(TestCase):
 
     def test_user_logout(self):
         # 退出登陆
-        response = self.client.get('/logout/')
-        self.assertEqual(response.status_code, 302)
+        login_data = {'username':'test_username','password':'test_password'}
+        login_response = self.client.post('/login_action/', data=login_data)
+        self.assertEquals(login_response.status_code,302)
+
+        logout_response = self.client.get('/logout/')
+        self.assertEqual(logout_response.status_code, 302)
 
