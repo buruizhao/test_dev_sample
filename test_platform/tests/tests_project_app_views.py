@@ -50,3 +50,10 @@ class ProjectManageTestCase(TestCase):
         check_html = check_response.content.decode('utf-8')
         self.assertEqual(check_response.status_code, 200)
         self.assertNotIn('需要删除的项目', check_html)
+
+class ProjectModuleTestCase(TestCase):
+    # 模块管理
+    def SetUp(self):
+        self.client = Client()
+        User.objects.create_user('testusername','test@123.com','testpassword')
+        login_data =
