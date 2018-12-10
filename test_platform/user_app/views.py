@@ -36,26 +36,9 @@ def login_action(request):
             else:
                 return render(request, 'index.html', {'error': '用户名或密码错误，请重新登录！'})
 
-    if request.method == 'GET':
-        username = request.GET.get('username', '')
-        password = request.GET.get('password', '')
 
-        if username == '' or password == '':
-            return render(request, 'index.html', {'error': '用户名或密码不能为空，请重新登录！'})
-        else:
-            user = auth.authenticate(username=username, password=password)
-
-            # if username == 'admin' and password == '123456':
-
-            if user is not None:
-                auth.login(request, user)  # 记录用户登录状态
-                # return render(request, "project_manage.html", {'user':user}) #普通返回
-                request.session['user'] = username  # 用session替换cookie
-                response = HttpResponseRedirect('/project/project_manage/')
-                # response.set_cookie('user', username, 3600) #添加浏览器cookie
-                return response
-            else:
-                return render(request, 'index.html', {'error': '用户名或密码错误，请重新登录！'})
+    else:
+        return render(request, 'index.html')
 
 
 #退出登录
