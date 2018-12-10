@@ -62,3 +62,5 @@ class MySeleniumTests(StaticLiveServerTestCase):
         success_text = self.driver.find_element_by_class_name('navbar-brand').text
         self.assertEqual('测试平台', success_text)
         sleep(2)
+
+
