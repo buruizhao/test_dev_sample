@@ -5,7 +5,7 @@ from time import sleep
 from django.contrib.auth.models import User
 
 
-class MySeleniumTests(StaticLiveServerTestCase):
+class UserAppTests(StaticLiveServerTestCase):
     # fixtures = ['user-data.json']
 
     @classmethod
