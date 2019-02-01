@@ -42,3 +42,4 @@ class ProjectAppTests(StaticLiveServerTestCase):
 		sleep(2)
 		create_text = self.driver.find_element_by_xpath('/html/body/div/div/div[2]/h2').text
 		self.assertEquals('创建项目',create_text)
+
